@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="./assets/css/style.css">
+<section>
+    <div class="container">
+        
+        <div class="user signiBx">
+            <div class="imagBox"> <img src="./assets/image/calendario.jpg"></div>
+            <div class="formBox">
+                <form action="/login/logar" method="post">
+                    <%- include('includes/messages'); %>
+                    <h2>Login</h2>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <input type="text" placeholder="Username" name="Username">
+                    <input type="password" placeholder="Password" name="Password">
+                    <input type="submit" value="Entrar">
+                    <p class="singup">Ainda não tem uma conta? <a href="#" id="login">Criar</a></p>
+                </form>
+            </div>
+        </div>
+  
+        <div class="user signupBx">
+            
+            <div class="formBox">
+                <form action="/login/register" method="post">
+                    <h2>Criar uma Conta</h2>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <input type="text" placeholder="Username" name="Username">
+                    <input type="text" placeholder="Email" name="Email">
+                    <input type="password" placeholder="Password" name="Password">
+                    <input type="password" placeholder="Confirma-Password" name="ConfirmaPassword">
+                    <input type="submit" value="Criar">
+                    <p class="singup">Já tem uma conta? <a href="#" id="login">Entrar</a></p>
+                </form>
+            </div>
+  
+            <div class="imagBox"> <img src="./assets/image/agenda.jpg"></div>
+        </div>
+  
+    </div>
+  </section>
+  <script src="./assets/js/login.js"></script>
