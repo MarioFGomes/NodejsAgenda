@@ -1,5 +1,5 @@
 <% if(errors.length > 0) {%>
-<div class="row">
+<div class="row" id="message">
     <div class="col">
         <div class="alert alert-danger">
             <% errors.forEach(error => { %>
@@ -11,7 +11,7 @@
 <%}%>
 
 <% if(success.length > 0) {%>
-    <div class="row">
+    <div class="row" id="message">
         <div class="col">
             <div class="alert alert-success">
                 <% success.forEach(success => { %>

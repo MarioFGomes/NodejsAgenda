@@ -8,32 +8,38 @@
         <div class="col-lg-8 my-3">
             <h1 class="text-center">Agenda</h1>
             <p class="text-center lead">Seus Contatos Estão abaixo</p>
-
+            <%- include('includes/messages'); %>
             <div class="responsive-table">
+
+              <% if (contatos.length >0) { %>
                 <table class="table table-striped table-dark">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Telefone</th>
-                        <th scope="col">Email</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Telefone</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <% contatos.forEach(contato => { %>
+
                       <tr>
                         <th scope="row">1</th>
-                        <td>Mário Gomes</td>
-                        <td>+244 932041319</td>
-                        <td>marioferreiragomes333@gmail.com</td>
+                        <td><%= contato.nome %> <%= contato.sobrenome %></td>
+                        <td><%= contato.telefone %></td>
+                        <td><%= contato.email %></td>
+                        <td><a href="/contato/register/<%= contato._id %>" class="btn btn-primary btn-sm">Editar</a></td>
+                        <td><a href="/contato/delete/<%= contato._id %>" class="btn btn-danger btn-sm">Deletar</a></td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Elisa Gomes</td>
-                        <td>+244 932041319</td>
-                        <td>elisaferreiragomes333@gmail.com</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                      <%}) %>
+                  </tbody>
+                </table>
+              <% } else { %>
+                <p>Não Existem Contatos na sua agenda</p>
+              <% } %>
+                
             </div>
         </div>
 

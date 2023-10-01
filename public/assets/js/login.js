@@ -1,3 +1,5 @@
+const { setTimeout } = require("core-js");
+
 const logar=document.getElementById('login')
 
 logar.addEventListener('click',() => {
